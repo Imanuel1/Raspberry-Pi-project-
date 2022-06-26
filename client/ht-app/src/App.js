@@ -2,10 +2,9 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import HomePage from "./pages/HomePage/HomePage";
+import { LOADING_TIME } from "./utils/environment";
 
-const LOADING_TIME = 5000;
-
-const App = () => {
+export default function App(){
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,5 +15,3 @@ const App = () => {
     { loading ? <LoadingPage /> : <HomePage />}
   </div>;
 };
-
-export default App;

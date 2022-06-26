@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import { Alert, Button, Form } from "react-bootstrap";
 import info from '../../assets/info-icon.jpg'
-const ALERT_TIME = 8000;
+import { ALERT_TIME } from "../../utils/environment";
 
 export default function HomePage() {
   const [showAlert, setShowAlert] = useState(false);
