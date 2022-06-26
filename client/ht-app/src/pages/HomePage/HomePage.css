@@ -1,0 +1,56 @@
+.App > .alert-info{
+    width: max-content;
+    height: max-content;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 0.4rem;
+    position: absolute;
+    padding: 2px;
+    padding-right: 20px;
+    top: 0;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+.App > .alert-info > .btn-close {
+    padding: 2px;
+    width: 5px;
+    height: 5px;
+    top: 8px;
+    border: 2px solid rgba(128, 128, 128, 0.404);
+    border-radius: 0.4rem;
+    background-color: rgba(128, 128, 128, 0.404);
+}
+.App > .alert-info > img{
+    width: 25px;
+    padding-right: 8px;
+}
+
+.c-home-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.content-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80%;
+}
+
+.content-holder > div{
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+}
+.content-holder > div > div > button{
+    background-color:rgba(244, 165, 96, 0.342);
+}
+
+.form-check > .form-check-input:checked{
+    background-color: #05ce41;
+    border-color: #05ce41;
+}
