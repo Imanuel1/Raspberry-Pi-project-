@@ -1,0 +1,52 @@
+.p-loading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.circular-dots {
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    .ht-logo{
+        width: 350px;
+    }
+    
+    .circular-dots {
+        padding: 20px;
+        width: 60px;
+        height: 60px;
+        animation: rotate 2s linear infinite;
+    }
+  }
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    .ht-logo{
+        width: 200px;
+    }
+    
+    .circular-dots {
+        padding: 20px;
+        width: 30px;
+        height: 30px;
+        animation: rotate 2s linear infinite;
+    }
+  }
