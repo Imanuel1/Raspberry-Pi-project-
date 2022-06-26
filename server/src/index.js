@@ -1,8 +1,14 @@
-import express from 'express';
+import express from "express";
+import cors from "cors";
+import { PORT } from "./environment";
 
 const app = express();
-const PORT = 3000;
 
-app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`)
-})
+app
+  .use(cors())
+  .use(express.json({ limit: "5mb" }))
+  .use(express.urlencoded({ extended: false }))
+  .use(express.static("build"))
+  .listen(PORT, () => {
+    console.log(`listening on port ${PORT}`);
+  });
