@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { PORT } from "./environment";
 import router from "./router";
+import { gpioInit } from "./middlewares/rpiHandler";
 
 const app = express();
 
@@ -15,4 +16,5 @@ app
 //   .use(errorHandler)
   .listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
+    gpioInit();
   });
