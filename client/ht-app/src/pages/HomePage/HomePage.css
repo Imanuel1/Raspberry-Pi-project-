@@ -49,8 +49,17 @@
 .content-holder > div > div > button{
     background-color:rgba(244, 165, 96, 0.342);
 }
+.content-holder > div > form{
+    padding: 0 80px;
+}
 
 .form-check > .form-check-input:checked{
     background-color: #05ce41;
     border-color: #05ce41;
+}
+
+.content-holder > div > img{
+    width: 200px;
+    height: 150px;
+    border: 1px solid grey;
 }
