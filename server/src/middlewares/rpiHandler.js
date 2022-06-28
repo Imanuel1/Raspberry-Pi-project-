@@ -1,3 +1,5 @@
+import { io } from "..";
+
 const pigpio = require("pigpio-client").pigpio({ host: "192.168.1.213" });
 // control LEDs on GPIO 22/4/27
 export const led1 = pigpio.gpio(22);
@@ -43,14 +45,16 @@ export const gpioInit = () => {
       await led2.modeSet("output");
       await led3.modeSet("output");
       await button.modeSet("input");
-
+      await button.modeSet("input");
+      let so;
+      io.on("connection", (socket) => {
+        so= socket;
+        console.log("socket on connection")
+      });
       button.notify((level, tick) => {
         console.log(`Button changed to ${level} at ${tick} usec`);
+        so.emit("button", level);
       });
     })
 }
 
-// export const rpiHandler = (_req, _res, next) => {
-
-//     next();
-// };

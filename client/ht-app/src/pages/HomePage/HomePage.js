@@ -4,6 +4,7 @@ import { Alert, Button, Form } from "react-bootstrap";
 import info from "../../assets/info-icon.jpg";
 import { ALERT_TIME } from "../../utils/environment";
 import { getData, putData } from "../../utils/api.service";
+import { io } from "socket.io-client";
 
 export default function HomePage() {
   const [showAlert, setShowAlert] = useState(false);
@@ -26,12 +27,20 @@ export default function HomePage() {
   useEffect(() => {
     getData("/leds")
       .then((res) => {
-        console.log("res :", res)
+        console.log("res :", res);
         setLedsStatus(res);
         console.log("get leds status successful");
       })
       .catch((err) => console.error("error :", err));
   }, []);
+
+  const socket = io();
+  socket.on("button", (notification) => {
+    console.log("notification :", notification);
+    if (!!notification) {
+      setShowAlert(true);
+    }
+  });
 
   const blinkClicked = (event) => {
     event.preventDefault();
@@ -63,9 +72,9 @@ export default function HomePage() {
 
     putData("/led", ledData)
       .then((res) => {
-        const ledResults = {... ledsStatus};
-        console.log("res :", res)
-        ledResults[currentId] = res.status
+        const ledResults = { ...ledsStatus };
+        console.log("res :", res);
+        ledResults[currentId] = res.status;
         setLedsStatus(ledResults);
         console.log(`${currentId} state is change to ${res}`);
       })
