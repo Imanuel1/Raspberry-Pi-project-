@@ -5,6 +5,7 @@ import router from "./router";
 import { gpioInit } from "./middlewares/rpiHandler";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import { errorHandler, reqLogPrefix } from "./middlewares/error-handler";
 
 
 const app = express();
@@ -15,10 +16,10 @@ app
   .use(cors())
   .use(express.json({ limit: "5mb" }))
   .use(express.urlencoded({ extended: false }))
-//   .use(logRequest)
+  .use(reqLogPrefix)
   .use(express.static("build"))
   .use("/api", router)
-//   .use(errorHandler)
+  .use(errorHandler)
   
 httpServer.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
