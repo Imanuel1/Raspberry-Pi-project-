@@ -1,1 +1,2 @@
-export * from "./ledsServices";
+export * from "./ledsService";
+export * from "./cameraService";
